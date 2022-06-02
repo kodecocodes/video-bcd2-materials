@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20083" systemVersion="21C52" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="RocketLaunch" representedClassName="RocketLaunch" syncable="YES">
+        <attribute name="isViewed" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="launchDate" attributeType="Date" defaultDateTimeInterval="671851140" usesScalarValueType="NO"/>
+        <attribute name="launchpad" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="notes" optional="YES" attributeType="String" defaultValueString=""/>
+        <relationship name="list" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="RocketLaunchList" inverseName="launches" inverseEntity="RocketLaunchList"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="launches" inverseEntity="Tag"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="RocketLaunchList" representedClassName="RocketLaunchList" syncable="YES">
+        <attribute name="title" attributeType="String"/>
+        <relationship name="launches" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="RocketLaunch" inverseName="list" inverseEntity="RocketLaunch"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="title"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="SpaceXFailure" representedClassName="SpaceXFailure" syncable="YES" codeGenerationType="class">
+        <attribute name="altitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="reason" optional="YES" attributeType="String"/>
+        <attribute name="time" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="launch" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SpaceXLaunch" inverseName="failures" inverseEntity="SpaceXLaunch"/>
+    </entity>
+    <entity name="SpaceXFairings" representedClassName="SpaceXFairings" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="recovered" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="recoveryAttempt" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="reused" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="ships" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer" customClassName="[String]"/>
+        <relationship name="launch" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SpaceXLaunch" inverseName="fairings" inverseEntity="SpaceXLaunch"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="recovered"/>
+                <constraint value="recoveryAttempt"/>
+                <constraint value="reused"/>
+                <constraint value="ships"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="SpaceXLaunch" representedClassName="SpaceXLaunch" parentEntity="RocketLaunch" syncable="YES" codeGenerationType="class">
+        <attribute name="autoUpdate" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="capsules" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer" customClassName="[String]"/>
+        <attribute name="crew" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer" customClassName="[[String:String]]"/>
+        <attribute name="dateLocal" optional="YES" attributeType="String"/>
+        <attribute name="datePrecision" optional="YES" attributeType="String"/>
+        <attribute name="dateUnix" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="dateUtc" optional="YES" attributeType="String"/>
+        <attribute name="details" optional="YES" attributeType="String"/>
+        <attribute name="flightNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="net" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="payloads" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer" customClassName="[String]"/>
+        <attribute name="rocket" optional="YES" attributeType="String"/>
+        <attribute name="ships" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer" customClassName="[String]"/>
+        <attribute name="staticFireDateUnix" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="staticFireDateUTC" optional="YES" attributeType="String"/>
+        <attribute name="success" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="tdb" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="upcoming" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="window" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="cores" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SpaceXLaunchCore" inverseName="launch" inverseEntity="SpaceXLaunchCore"/>
+        <relationship name="failures" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SpaceXFailure" inverseName="launch" inverseEntity="SpaceXFailure"/>
+        <relationship name="fairings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SpaceXFairings" inverseName="launch" inverseEntity="SpaceXFairings"/>
+        <relationship name="links" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SpaceXLinks" inverseName="launch" inverseEntity="SpaceXLinks"/>
+        <relationship name="spaceXList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SpaceXLaunchList" inverseName="launches" inverseEntity="SpaceXLaunchList"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="SpaceXLaunchCore" representedClassName="SpaceXLaunchCore" syncable="YES" codeGenerationType="class">
+        <attribute name="core" optional="YES" attributeType="String"/>
+        <attribute name="flight" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="gridfins" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="landingAttempt" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="landingSuccess" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="landingType" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="landpad" optional="YES" attributeType="String"/>
+        <attribute name="legs" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="reused" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="launch" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SpaceXLaunch" inverseName="cores" inverseEntity="SpaceXLaunch"/>
+    </entity>
+    <entity name="SpaceXLaunchList" representedClassName="SpaceXLaunchList" syncable="YES" codeGenerationType="class">
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="launches" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SpaceXLaunch" inverseName="spaceXList" inverseEntity="SpaceXLaunch"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="title"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="SpaceXLinks" representedClassName="SpaceXLinks" syncable="YES" codeGenerationType="class">
+        <attribute name="article" optional="YES" attributeType="String"/>
+        <attribute name="flickr" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer" customClassName="[String: [String]]"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="patch" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer" customClassName="[String: String]"/>
+        <attribute name="presskit" optional="YES" attributeType="String"/>
+        <attribute name="reddit" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer" customClassName="[String: String]"/>
+        <attribute name="webcast" optional="YES" attributeType="String"/>
+        <attribute name="wikipedia" optional="YES" attributeType="String"/>
+        <attribute name="youtubeid" optional="YES" attributeType="String"/>
+        <relationship name="launch" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SpaceXLaunch" inverseName="links" inverseEntity="SpaceXLaunch"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="youtubeid"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Tag" representedClassName="Tag" syncable="YES">
+        <attribute name="launchCount" transient="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" attributeType="String"/>
+        <relationship name="launches" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RocketLaunch" inverseName="tags" inverseEntity="RocketLaunch"/>
+    </entity>
+    <elements>
+        <element name="RocketLaunch" positionX="-63" positionY="-18" width="128" height="134"/>
+        <element name="RocketLaunchList" positionX="-54" positionY="27" width="128" height="59"/>
+        <element name="SpaceXFailure" positionX="-45" positionY="45" width="128" height="89"/>
+        <element name="SpaceXFairings" positionX="-36" positionY="54" width="128" height="119"/>
+        <element name="SpaceXLaunch" positionX="-27" positionY="63" width="128" height="404"/>
+        <element name="SpaceXLaunchCore" positionX="-18" positionY="72" width="128" height="179"/>
+        <element name="SpaceXLaunchList" positionX="0" positionY="81" width="128" height="59"/>
+        <element name="SpaceXLinks" positionX="18" positionY="90" width="128" height="179"/>
+        <element name="Tag" positionX="-36" positionY="54" width="128" height="74"/>
+    </elements>
+</model>
