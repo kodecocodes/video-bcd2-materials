@@ -12,6 +12,7 @@
 		18D775C722AD944400AE281E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D775C622AD944400AE281E /* Assets.xcassets */; };
 		18D775CA22AD944400AE281E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D775C922AD944400AE281E /* Preview Assets.xcassets */; };
 		18D775D822AD963800AE281E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D775DA22AD963800AE281E /* LaunchScreen.storyboard */; };
+		5FC4AAB228F594FE00D62356 /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC4AAB128F594FE00D62356 /* TagsView.swift */; };
 		AE1D5CE827C2A1120033125A /* LaunchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1D5CE727C2A1120033125A /* LaunchDetailView.swift */; };
 		AE4A726027FA0536006EACBD /* RocketLaunches.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE4A725E27FA0536006EACBD /* RocketLaunches.xcdatamodeld */; };
 		AE4A726227FA055B006EACBD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4A726127FA055B006EACBD /* Persistence.swift */; };
@@ -23,7 +24,6 @@
 		AE4A726F27FA3A18006EACBD /* ListCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4A726E27FA3A18006EACBD /* ListCreateView.swift */; };
 		AE4A727227FA4779006EACBD /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4A727027FA4779006EACBD /* Tag+CoreDataClass.swift */; };
 		AE4A727327FA4779006EACBD /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4A727127FA4779006EACBD /* Tag+CoreDataProperties.swift */; };
-		AE4A727627FA4A2A006EACBD /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4A727527FA4A2A006EACBD /* TagsView.swift */; };
 		AE5BF31627C47A17009B0282 /* RocketLaunchesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5BF31527C47A17009B0282 /* RocketLaunchesTests.swift */; };
 		AEF7FB8227C1856F000CBF46 /* LaunchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF7FB8127C1856F000CBF46 /* LaunchesView.swift */; };
 		AEF7FB8627C18583000CBF46 /* LaunchCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF7FB8527C18583000CBF46 /* LaunchCreateView.swift */; };
@@ -48,6 +48,7 @@
 		18D775C922AD944400AE281E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		18D775CE22AD944400AE281E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18D775DE22AD96B400AE281E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5FC4AAB128F594FE00D62356 /* TagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsView.swift; sourceTree = "<group>"; };
 		AE1D5CE727C2A1120033125A /* LaunchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailView.swift; sourceTree = "<group>"; };
 		AE4A725F27FA0536006EACBD /* RocketLaunches.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RocketLaunches.xcdatamodel; sourceTree = "<group>"; };
 		AE4A726127FA055B006EACBD /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -59,7 +60,6 @@
 		AE4A726E27FA3A18006EACBD /* ListCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCreateView.swift; sourceTree = "<group>"; };
 		AE4A727027FA4779006EACBD /* Tag+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataClass.swift"; sourceTree = "<group>"; };
 		AE4A727127FA4779006EACBD /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		AE4A727527FA4A2A006EACBD /* TagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsView.swift; sourceTree = "<group>"; };
 		AE5BF31327C47A17009B0282 /* RocketLaunchesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RocketLaunchesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5BF31527C47A17009B0282 /* RocketLaunchesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketLaunchesTests.swift; sourceTree = "<group>"; };
 		AEF7FB8127C1856F000CBF46 /* LaunchesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesView.swift; sourceTree = "<group>"; };
@@ -129,6 +129,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		5FC4AAB328F5950E00D62356 /* Tags */ = {
+			isa = PBXGroup;
+			children = (
+				5FC4AAB128F594FE00D62356 /* TagsView.swift */,
+			);
+			path = Tags;
+			sourceTree = "<group>";
+		};
 		AE4A726B27FA39FC006EACBD /* LaunchList */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,14 +144,6 @@
 				AE4A726E27FA3A18006EACBD /* ListCreateView.swift */,
 			);
 			path = LaunchList;
-			sourceTree = "<group>";
-		};
-		AE4A727427FA4A1C006EACBD /* Tags */ = {
-			isa = PBXGroup;
-			children = (
-				AE4A727527FA4A2A006EACBD /* TagsView.swift */,
-			);
-			path = Tags;
 			sourceTree = "<group>";
 		};
 		AE5BF31427C47A17009B0282 /* RocketLaunchesTests */ = {
@@ -157,7 +157,7 @@
 		AEF7FB7727C184B6000CBF46 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AE4A727427FA4A1C006EACBD /* Tags */,
+				5FC4AAB328F5950E00D62356 /* Tags */,
 				AE4A726B27FA39FC006EACBD /* LaunchList */,
 				AEF7FB7927C184CA000CBF46 /* Launch */,
 			);
@@ -318,7 +318,6 @@
 				AE4A726A27FA3766006EACBD /* RocketLaunchList+CoreDataProperties.swift in Sources */,
 				AE4A726427FA0BFF006EACBD /* RocketLaunch+CoreDataClass.swift in Sources */,
 				AE4A726227FA055B006EACBD /* Persistence.swift in Sources */,
-				AE4A727627FA4A2A006EACBD /* TagsView.swift in Sources */,
 				AE4A726027FA0536006EACBD /* RocketLaunches.xcdatamodeld in Sources */,
 				AEF7FB8227C1856F000CBF46 /* LaunchesView.swift in Sources */,
 				AE4A726927FA3766006EACBD /* RocketLaunchList+CoreDataClass.swift in Sources */,
@@ -329,6 +328,7 @@
 				AEF7FB8627C18583000CBF46 /* LaunchCreateView.swift in Sources */,
 				AE4A727327FA4779006EACBD /* Tag+CoreDataProperties.swift in Sources */,
 				AEF7FB8A27C18598000CBF46 /* LaunchStatusView.swift in Sources */,
+				5FC4AAB228F594FE00D62356 /* TagsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
